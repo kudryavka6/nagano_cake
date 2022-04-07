@@ -1,0 +1,54 @@
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand">LOGO</a>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link disabled">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">商品一覧</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">新規登録</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">ログイン</a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 align-self-start">
+        <h3>管理者ログイン</h3>
+      </div>
+        <div class="mx-auto">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :メールアドレス %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :パスワード %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+
+            <div class="actions">
+              <%= f.submit "ログイン", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+
+<%= render "admin/shared/links" %>

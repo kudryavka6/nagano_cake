@@ -1,19 +1,23 @@
   <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand">LOGO</a>
+          <i class="navbar-brand">LOGO</i>
             <ul class="nav justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link disabled">About</a>
+              <li class="nav-item"><%= link_to new_admin_session_path, class: "nav-link" do %>
+              　<i class="btn btn-outline-secondary">About</i>
+              　<% end %>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">商品一覧</a>
+              <li class="nav-item"><%= link_to new_admin_session_path, class: "nav-link" do %>
+                <i class="btn btn-outline-secondary">商品一覧</i>
+                <% end %>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">新規登録</a>
+              <li class="nav-item"><%= link_to new_admin_session_path, class: "nav-link" do %>
+                <i class="btn btn-outline-secondary">新規登録</i>
+                <% end %>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">ログイン</a>
+              <li class="nav-item"><%= link_to new_admin_session_path, class: "nav-link" do %>
+                <i class="btn btn-outline-secondary">ログイン</i>
+                <% end %>
               </li>
             </ul>
         </div>

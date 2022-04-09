@@ -1,7 +1,11 @@
 <header>
-    <h3>管理者トップページ(商品一覧)</h3>
+    <h3>管理者トップページ</h3>
     <li><%= link_to "商品一覧", admin_path %></li>
     <li><%= link_to "会員一覧", admin_customers_path %></li>
     <li><%= link_to "注文履歴一覧", admin_items_path %></li>
     <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+    <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 </header>
+
+    <h4>注文履歴一覧</h4>
+    

@@ -14,4 +14,17 @@
 
 <h4>商品名</h4>
 <%= f.text_field :name %>
+
+<h4>商品説明</h4>
+<%= f.text_area :introduction %>
+
+<h4>ジャンル</h4>
+
+<h4>税抜価格</h4>
+<%= f.text_field :price %>円
+
+<h4>販売ステータス</h4>
+<%= f.radio_button :is_active, "販売中" %>販売中　<%= f.radio_button :is_active, "販売停止中" %>販売停止中
+
+<br><%= f.submit '新規登録' %></br>
 <% end %>

@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
       t.string :name
-      t.text :intoroduction
+      t.text :introduction
       t.integer :price
       t.boolean :is_active
 

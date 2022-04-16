@@ -1,5 +1,5 @@
 <h3>商品詳細</h3>
- <% if item.image.attached? %>
+ <% if @item.image.attached? %>
     <%= image_tag item.image, size: "100x100" %>
 　<% else %>
     <%= image_tag 'no_image', size: "100x100" %>
@@ -19,5 +19,5 @@
 
  <h4>販売ステータス</h4>
  <%= @item.is_active %>
- <br><%= link_to "編集" , _path(item.id) %></br>
+ <br><%= link_to "編集する" , admin_item_path(@item) %></br>
 

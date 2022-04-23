@@ -1,1 +1,25 @@
+<%= render 'admin/genres/header' %>
+
 <h3>商品一覧</h3>
+<% @items.each do |item| %>
+
+    <h5>商品ID</h5>
+    <%= item.id %>
+
+    <h5>商品名</h5>
+    <%= item.name %>
+
+    <h5>税抜き価格</h5>
+    <%= item.price %>
+
+    <h5>ジャンル</h5>
+    <%= item.genre.name %>
+
+    <h5>ステータス</h5>
+     <% if item.is_active %>
+      販売中
+     <% else %>
+      販売停止中
+     <% end %>
+
+<% end %>

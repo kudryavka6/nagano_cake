@@ -1,3 +1,5 @@
+<%= render 'admin/genres/header' %>
+
 <h3>商品詳細</h3>
  <% if @item.image.attached? %>
     <%= image_tag item.image, size: "100x100" %>
@@ -12,12 +14,18 @@
  <%= @item.introduction %>
 
  <h4>ジャンル</h4>
+<%= @item.genre.name %>
 
  <h4>税込価格</h4>
- <h4>税抜価格</h4>
- <%= @item.price %>円
+ <h4>(税抜価格)</h4>
+ <%= @item.add_tax_price.to_s(:dalimited) %>円
+ (<%= @item.price %>)円
 
  <h4>販売ステータス</h4>
- <%= @item.is_active %>
- <br><%= link_to "編集する" , admin_item_path(@item) %></br>
+ <% if @item.is_active %>
+  販売中
+ <% else %>
+  販売停止中
+ <% end %>
 
+ <br><%= link_to "編集する" , edit_admin_item_path(@item) %></br>

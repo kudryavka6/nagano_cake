@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
     t.string "name"
     t.string "postal_code"
     t.string "address"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -62,6 +63,8 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "amount"
+    t.integer "item_id"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -79,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_active"
+    t.boolean "is_deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
     t.text "introduction"
     t.integer "price"
     t.boolean "is_active"
+    t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -105,6 +109,8 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
     t.integer "price"
     t.integer "quantity"
     t.integer "making_status"
+    t.integer "item_id"
+    t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -117,6 +123,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_154659) do
     t.integer "total_payment"
     t.integer "payment_method"
     t.integer "status"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

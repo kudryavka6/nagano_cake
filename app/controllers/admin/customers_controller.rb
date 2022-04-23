@@ -12,6 +12,6 @@ class Admin::CustomersController < ApplicationController
   end
   
   def update
-  
+    
   end
 end

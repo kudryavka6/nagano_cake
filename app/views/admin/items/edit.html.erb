@@ -1,3 +1,5 @@
+<%= render 'admin/genres/header' %>
+
 <h4>商品編集</h4>
 <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
 
@@ -11,12 +13,13 @@
 <%= f.text_area :introduction %>
 
 <h4>ジャンル</h4>
+<%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "ジャンルを選択してください"}) %>
 
 <h4>税抜価格</h4>
 <%= f.text_field :price %>円
 
 <h4>販売ステータス</h4>
-<%= f.radio_button :is_active %>
+  <%= f.radio_button :is_active, "販売中" %>販売中　<%= f.radio_button :is_active, "販売停止中" %>販売停止中
 
 <%= f.submit '変更を保存' %>
 <% end %>

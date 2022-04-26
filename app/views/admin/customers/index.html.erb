@@ -1,3 +1,21 @@
 <%= render 'admin/genres/header' %>
 
-<h3>顧客一覧</h3>
+<h3>会員一覧</h3>
+<% @customers.each do |customer| %>
+    <h5>会員ID</h5>
+    <%= customer.id %>
+
+    <h5>氏名</h5>
+    <%= link_to customer.last_name.first_name, admin_customer_path(customer.id) %>
+
+    <h5>メールアドレス</h5>
+    <%= customer.email %>
+
+    <h5>ステータス</h5>
+     <% if customer.is_deleted %>
+      有効
+     <% else %>
+      退会
+     <% end %>
+<% end %>
+ <%= paginate @customers %>

@@ -1,3 +1,12 @@
 <%= render 'admin/genres/header' %>
 
 <h3>顧客編集</h3>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+
+<h5>会員ID</h5>
+<%= f.id %>
+
+<h5>氏名</h5>
+<p><%= f.text_field :last_name %><%= text_field :first_name %></p>
+
+<h5>フリガナ</h5>

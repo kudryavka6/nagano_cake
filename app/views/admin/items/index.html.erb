@@ -1,13 +1,14 @@
 <%= render 'admin/genres/header' %>
 
-<h3>商品一覧</h3>
+<h3>商品一覧<%= link_to "＋", new_admin_item_path %></h3>
+
 <% @items.each do |item| %>
 
     <h5>商品ID</h5>
     <%= item.id %>
 
     <h5>商品名</h5>
-    <%= item.name %>
+    <%= link_to item.name, admin_item_path(item.id) %>
 
     <h5>税抜き価格</h5>
     <%= item.price %>
@@ -21,5 +22,5 @@
      <% else %>
       販売停止中
      <% end %>
-
 <% end %>
+<%= paginate @items %>

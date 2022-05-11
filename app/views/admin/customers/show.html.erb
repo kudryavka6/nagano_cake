@@ -1,12 +1,12 @@
 <%= render 'admin/genres/header' %>
 
-<h3><%= @customer.last_name.first_name %>さんの会員詳細</h3>
+<h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
 
 <h5>会員ID</h5>
 <%= @customer.id %>
 
 <h5>氏名</h5>
-<%= @customer.last_name.first_name %>
+<%= @customer.last_name %><%= @customer.first_name %>
 
 <h5>フリガナ</h5>
 <%= @customer.last_name_kana.first_name_kana %>
@@ -25,9 +25,9 @@
 
 <h5>会員ステータス</h5>
 <% if @customer.is_deleted %>
- 有効
+  有効
 <% else %>
- 退会
+  退会
 <% end %>
 
 <br><%= link_to "編集する", edit_admin_customer_path(@customer) %></br>

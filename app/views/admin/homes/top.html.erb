@@ -1,12 +1,15 @@
-<header>
-  <h3>管理者トップページ</h3>
-    <li><%= link_to "商品一覧", admin_path %></li>
-    <li><%= link_to "会員一覧", admin_customers_path %></li>
-    <li><%= link_to "注文履歴一覧", admin_items_path %></li>
-    <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-    <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-</header>
+<%= render 'admin/genres/header' %>
 
   <h4>注文履歴一覧</h4>
-    
-    
+  <% @orders.each do |order| %>
+
+  <h5>購入日時</h5>
+  <%= link_to order.created_at, admin_order_path %>
+
+  <h5>購入者</h5>
+  <%= order.name %>
+
+  <h5>注文個数</h5>
+  <%= order_details.all.sum(:quantity) %>
+  <% end %>
+  <%= paginate @orders %>

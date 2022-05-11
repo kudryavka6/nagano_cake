@@ -1,0 +1,24 @@
+<h3>注文履歴詳細</h3>
+
+<h5>購入者</h5>
+<%= @order.name %>
+
+<h5>注文日</h5>
+<%= @order.created_at %>
+
+<h5>配送先</h5>
+<%= @order.address %>
+
+<h5>支払方法</h5>
+<%= @order.payment_method %>
+
+<h5>注文ステータス</h5>
+
+<h5>商品名</h5>
+<%= @item.name %>
+
+<h5>単価(税込)</h5>
+<%= @item.add_tax_price.to_s(:dalimited) %>
+
+<h5>数量</h5>
+<%= @item.

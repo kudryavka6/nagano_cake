@@ -13,8 +13,8 @@ Rails.application.routes.draw do
    resources :items
    resources :genres, only: [:index, :create,  :edit, :update]
    resources :customers, only: [:index, :show,  :edit, :update]
-   resources :oders, only: [:show, :update]
-   resources :oder_details, only: [:update]
+   resources :orders, only: [:show, :update]
+   resources :order_details, only: [:update]
   end
   scope module: :public do
    root to: "homes#top"

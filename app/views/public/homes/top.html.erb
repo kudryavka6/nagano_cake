@@ -2,15 +2,32 @@
 　<li><%= link_to "LOGO", root_path %></li>
   <li><%= link_to "About", about_path %></li>
   <li><%= link_to "商品一覧", items_path %></li>
-  <li><%= link_to "新規登録", new_customer_session_path %></li>
-  <li><%= link_to "ログイン", new_customer_registration_path %></li>
+  <li><%= link_to "新規登録", new_customer_registration_path %></li>
+  <li><%= link_to "ログイン", new_customer_session_path %></li>
 </header>
-<h4>
+<div>
     <br>ようこそながのCAKEへ!</br>
     <br>このサイトは、ケーキ販売のECサイトになります。</br>
     <br>会員でない方も商品の閲覧はできますが、</br>
     <br>購入には会員登録が必要になります。</br>
-</h4>
+</div>
 
-<h5>新商品</h5>
+<h5>新着商品</h5>
+<% @items.each do |item| %>
+<div>
+  <div>
+  <% if item.image.attached? %>
+   <%= link_to item_path(item.id) do %>
+     <%= image_tag item.image, size: "100x100" %>
+   <% end %>
+　<% else %>
+　 <%= link_to item_path(item.id) do %>
+    <%= image_tag 'no_image', size: "100x100" %>
+   <% end %>
+  <% end %>
+  </div>
+  <p><%= item.name %></p>
+  <p>¥<%= item.price %></p>
+</div>
+<% end %>
 

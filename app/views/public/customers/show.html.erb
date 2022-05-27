@@ -1,0 +1,37 @@
+<%= render 'header' %>
+
+<h3>マイページ</h3>
+<h5>登録情報</h5>
+<div>
+<%= link_to "編集する", customers_edit_path %>
+</div>
+
+<div>
+  氏名 | <%= @customer.last_name %> <%= @customer.first_name %>
+</div>
+
+<div>
+  カナ | <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+</div>
+
+<div>
+  郵便番号 | <%= @customer.postal_code %>
+</div>
+
+<div>
+  住所 | <%= @customer.address %>
+</div>
+
+<div>
+  電話番号 | <%= @customer.telephone_number %>
+</div>
+
+<div>
+  メールアドレス | <%= @customer.email %>
+</div>
+
+<h5>配送先</h5>
+<div><%= link_to "一覧を見る", addresses_path %></div>
+
+<h5>注文履歴</h5>
+<div><%= link_to "一覧を見る", orders_path %></div>

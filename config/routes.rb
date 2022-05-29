@@ -4,6 +4,8 @@ Rails.application.routes.draw do
    get 'home/about' => 'homes#about', as: 'about'
    get 'customers/my_page' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
+   get 'customers/unsubscribe' => 'customers#unsubscribe'
+   patch 'customers/withdraw' => 'customers#withdraw'
    resources :items, only: [:index, :show]
    resources :customers, only: [:update,]
    resources :cart_items, only: [:index, :update, :destroy, :create]

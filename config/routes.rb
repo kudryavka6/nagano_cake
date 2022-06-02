@@ -9,8 +9,8 @@ Rails.application.routes.draw do
    resources :items, only: [:index, :show]
    resources :customers, only: [:update,]
    resources :cart_items, only: [:index, :update, :destroy, :create]
-   resources :orders, only: [:new, :index, :create, :cr]
-   resources :addresses, only: [:index, :show, :create, :update, :destroy]
+   resources :orders, only: [:new, :index, :create, :show]
+   resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
   devise_for :customers,skip: [:passwords], controllers: {
    registrations: "public/registrations",

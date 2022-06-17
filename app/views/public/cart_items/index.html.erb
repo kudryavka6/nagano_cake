@@ -1,0 +1,29 @@
+<%= render 'public/customers/header' %>
+
+<h5>ショッピングカート</h5>
+
+<% @items.each do |item| %>
+<div>
+<h5>商品名</h5>
+    <%= item.name %>
+    
+<h5>単価(税込)</h5>
+
+<h5>数量</h5>
+
+</div>
+<div>
+  <% if item.image.attached? %>
+    <%= link_to item_path(item.id) do %>
+     <%= image_tag item.image, size: "50x50" %>
+    <% end %>
+　<% else %>
+　  <%= link_to item_path(item.id) do %>
+     <%= image_tag 'no_image', size: "50x50" %>
+    <% end %>
+  <% end %>
+  <%= item.name %>
+</div>
+
+
+<% end %>

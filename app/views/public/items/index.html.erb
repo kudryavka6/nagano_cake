@@ -1,0 +1,22 @@
+<%= render 'public/customers/header' %>
+
+<h3>商品一覧</h3>
+<% @items.each do |item| %>
+<div>
+  <div>
+  <% if item.image.attached? %>
+   <%= link_to item_path(item.id) do %>
+     <%= image_tag item.image, size: "100x100" %>
+   <% end %>
+　<% else %>
+　 <%= link_to item_path(item.id) do %>
+    <%= image_tag 'no_image', size: "100x100" %>
+   <% end %>
+  <% end %>
+  </div>
+  <p><%= item.name %></p>
+  <p>¥<%= item.price %></p>
+</div>
+<% end %>
+
+<%= paginate @items %>

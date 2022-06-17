@@ -1,1 +1,24 @@
 <%= render 'public/customers/header' %>
+
+ <% if @item.image.attached? %>
+    <%= image_tag item.image, size: "100x100" %>
+　<% else %>
+    <%= image_tag 'no_image', size: "100x100" %>
+ <% end %>
+
+<h2><%= @item.name %></h2>
+
+<h4><%= @item.introduction %></h4>
+
+￥<%= @item.add_tax_price.to_s(:dalimited) %>（税込み）
+
+<%= form_with model: @cart_item, url: cart_items_path do |f| %>
+
+<%= f.hidden_field :item_id, :value => (@item.id) %>
+
+<%= f.select :amount, *[1..10] %>
+
+<%= f.submit 'カートに入れる' %>
+
+<% end %>
+

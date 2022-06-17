@@ -5,6 +5,7 @@ Rails.application.routes.draw do
    get 'customers/my_page' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
    get 'customers/unsubscribe' => 'customers#unsubscribe'
+   get 'oders/thanks' => 'customers#thanks'
    patch 'customers/withdraw' => 'customers#withdraw'
    resources :items, only: [:index, :show]
    resources :customers, only: [:update,]

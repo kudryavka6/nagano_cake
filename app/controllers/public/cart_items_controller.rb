@@ -1,27 +1,41 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @items = Item.all
+    @cart_items = CartItem.all
+    @total = 0
   end
 
   def create
-    if
-      
-    else
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
+    @update_cart_item = CartItem.find_by(item_id: @cart_item.item_id)
+    if @update_cart_item.present? && @cart_item.valid?
+      @cart_item.amount += @update_cart_item.amount
+      @update_cart_item.destroy
+    end
+    if @cart_item.save
     redirect_to cart_items_path
+    else
+    @item = Item.find(params[:cart_item][:item_id])
+    @cart_item = CartItem.new
+    render ("public/item/show")
     end
   end
 
-  def update
-    @cart_item = Cart_items.find(params[id])
-    @cart_item.update(cart_item_params)
-    redirect_to cart_items_path(@cart_item)
+  def destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
-  def destroy
-
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+  end
+  
+  def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
   private

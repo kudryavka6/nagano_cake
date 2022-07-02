@@ -5,8 +5,10 @@ Rails.application.routes.draw do
    get 'customers/my_page' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
    get 'customers/unsubscribe' => 'customers#unsubscribe'
-   get 'oders/thanks' => 'customers#thanks'
+   get 'oders/thanks' => 'oders#thanks'
+   post 'orders/confirm' => 'ordersconfirm'
    patch 'customers/withdraw' => 'customers#withdraw'
+   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
    resources :items, only: [:index, :show]
    resources :customers, only: [:update,]
    resources :cart_items, only: [:index, :update, :destroy, :create]

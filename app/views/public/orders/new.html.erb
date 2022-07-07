@@ -1,5 +1,19 @@
 <%= render 'public/customers/header' %>
 
-<h3>注文情報入力画面</h3>
+<h3>注文情報入力</h3>
 
 <h5>支払方法</h5>
+<%= form_with model: @order do |f| %>
+
+<%= f.radio_button :payment_method, "credit_card" %>
+<%= f.label :payment_method, "クレジットカード" %>
+
+<%= f.radio_button :payment_method, "transfer" %>
+<%= f.label :payment_method, "銀行振込" %>
+
+<h5>お届け先</h5>
+
+<%= f.radio_button :address_option, "2" %> 登録済住所から選択</br>
+<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+
+<% end %>

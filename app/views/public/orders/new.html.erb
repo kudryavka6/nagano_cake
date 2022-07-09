@@ -12,8 +12,22 @@
 <%= f.label :payment_method, "銀行振込" %>
 
 <h5>お届け先</h5>
+<%= f.radio_button :address_option, "1" %> ご自身の住所</br>
+<%= @customer.postal_code %>
+<%= @customer.address %>
+<%= @customer.last_name_kana %>
+<%= @customer.first_name_kana %></br>
 
 <%= f.radio_button :address_option, "2" %> 登録済住所から選択</br>
-<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></br>
 
+<%= f.radio_button :address_option, "3" %> 新しいお届け先</br>
+<a>郵便番号(ハイフンなし)</a>
+<%= f.text_field :postal_code %></br>
+<a>住所</a>
+<%= f.text_field :address %></br>
+<a>氏名</a>
+<%= f.text_field :name %></br>
+
+<%= f.submit '確認画面へ進む' %>
 <% end %>

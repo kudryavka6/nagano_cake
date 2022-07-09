@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    get 'customers/edit' => 'customers#edit'
    get 'customers/unsubscribe' => 'customers#unsubscribe'
    get 'oders/thanks' => 'oders#thanks'
-   post 'orders/confirm' => 'ordersconfirm'
+   post 'orders/confirm' => 'orders#confirm'
    patch 'customers/withdraw' => 'customers#withdraw'
    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
    resources :items, only: [:index, :show]

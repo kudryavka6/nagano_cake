@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :customer
+  has_many :order_details
   enum status: { waiting_for_deposit: 0, payment_confirmation: 1, in_production: 2,
                         ready_to_ship: 3, sent: 4 }
 
